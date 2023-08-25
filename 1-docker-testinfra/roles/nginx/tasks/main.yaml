@@ -1,0 +1,15 @@
+---
+- name: install nginx
+  apt: name=nginx state=present
+  #yum: name=nginx state=present
+  #notify: "restart nginx"
+
+- name: copy index.html
+  copy:
+    src: "{{ env }}/index.html"
+    #dest: /var/www/html/index.nginx-debian.html
+    dest: /usr/share/nginx/html/
+    owner: www-data
+    group: www-data
+    mode: 0750
+  notify: "restart nginx"

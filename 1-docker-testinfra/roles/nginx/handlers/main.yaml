@@ -1,0 +1,10 @@
+---
+- name: restart and enable nginx on vm
+  service: name=nginx state=started enabled=yes
+  listen: "restart nginx"
+  when: molecule_yml is not defined
+
+- name: restart and enable nginx on docker
+  command: "nginx"
+  listen: "restart nginx"
+  when: molecule_yml is defined

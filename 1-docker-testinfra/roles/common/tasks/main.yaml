@@ -1,0 +1,10 @@
+---
+- name: install tools
+  apt: name={{ item }} state=present update_cache=yes
+  #yum: name={{ item }} state=present update_cache=yes
+  with_items:
+    - htop
+    - net-tools
+    #- netcat
+    - telnet
+    - curl

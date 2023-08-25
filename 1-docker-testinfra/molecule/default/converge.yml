@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  #hosts: instance
+  #tasks:
+  #  - name: "Include nginx"
+  #    include_role:
+  #      name: "nginx"
+- import_playbook: ../../playbook.yml
