@@ -1,0 +1,24 @@
+---
+dependency:
+  name: galaxy
+
+driver:
+  name: gce
+  project_id: voltrondata-labs
+  region: us-central1
+  auth_kind: application
+  external_access: true
+  instance_os_type: linux
+
+platforms:
+  - name: molecule-ubuntu
+    zone: us-central1-a
+    machine_type: n1-standard-1
+    image: 'projects/ubuntu-os-cloud/global/images/family/ubuntu-2204-lts'
+    tags:
+      items:
+        - allow-ssh
+provisioner:
+  name: ansible
+verifier:
+  name: testinfra

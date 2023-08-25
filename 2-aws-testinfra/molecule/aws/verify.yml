@@ -1,0 +1,9 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Verify nginx is serving web requests
+    ansible.builtin.uri:
+      url: http://localhost/nginx_status
+      status_code: 200

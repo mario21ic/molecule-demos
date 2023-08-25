@@ -1,0 +1,14 @@
+---
+- name: Install some tools & Nginx
+  hosts: all
+  #hosts: 127.0.0.1 # local
+  #connection: local # local
+  become: true
+  become_method: sudo
+  vars:
+    env: "dev"
+  roles:
+    - common
+    - nginx
+  #handlers:
+  #  - include_tasks: roles/nginx/handlers/main.yaml

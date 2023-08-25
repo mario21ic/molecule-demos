@@ -1,0 +1,20 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    #image: quay.io/centos/centos:stream8
+    image: geerlingguy/docker-ubuntu2204-ansible:latest
+    #command: "sleep 1000000"
+    #volumes:
+    #  - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    #privileged: true
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  #name: ansible
+  name: testinfra
+  #enabled: True

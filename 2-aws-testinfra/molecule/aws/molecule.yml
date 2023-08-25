@@ -1,0 +1,23 @@
+---
+dependency:
+  name: galaxy
+lint: |
+  set -e
+  yamllint .
+  #ansible-lint
+driver:
+  name: ec2
+platforms:
+  - name: instance
+    image_owner: 099720109477
+    image_name: ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20220610
+    instance_type: t2.micro
+    vpc_subnet_id: ${SUBNET_ID}
+    tags:
+      Name: molecule_instance
+      team: devops
+provisioner:
+  name: ansible
+verifier:
+  name: testinfra
+  enabled: True
