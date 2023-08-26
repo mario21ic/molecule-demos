@@ -1,9 +1,0 @@
----
-- name: Converge
-  hosts: all
-  #tasks:
-  #  - name: "Include docs_voltrondata_run"
-  #    ansible.builtin.include_role:
-  #      name: "docs_voltrondata_run"
-
-- import_playbook: ../../playbook.yml
